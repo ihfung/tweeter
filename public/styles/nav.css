@@ -1,0 +1,21 @@
+nav {
+  font-family: "Bungee", sans-serif;
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 1.5em;
+  
+ }
+
+ .postButton {
+  float: right;
+  height: auto;
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  border: none;
+  
+ }
+
+
