@@ -30,6 +30,6 @@ body {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  background-color: #f4f1ec;
+  background-color: inherit;
 
  }
