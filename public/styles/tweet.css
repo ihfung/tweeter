@@ -11,9 +11,10 @@
   box-shadow: 10px 5px 5px rgb(128, 142, 226);
 }
 
-.displayFlagIcon {
+.icon{
   display: flex;
   justify-content: flex-end;
+  
   margin-right: 35px;
 
 }
