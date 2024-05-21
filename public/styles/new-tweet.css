@@ -1,7 +1,7 @@
 .formStyle {
     display: flex;
     flex-direction: column;
-    
+    margin: 0 auto;
     
 }
 
@@ -9,7 +9,7 @@
   background-color: #f4f1ec;  
   border: 0;
   border-bottom: 5px solid #000;
-  width: 1000px;
+  width: 100%;
   height: 68px;
   
 }
@@ -18,14 +18,12 @@
   background-color: #4056A1;
   font-family: "Bungee", sans-serif;  
   color: #FFFFFF;
-  display: flex;
-  justify-content: flex-start;
+  text-align: center;
 }
 
 .counter {
   color:#000;
   font-family: "Bungee", sans-serif;
-  display: flex;
-  justify-content: flex-end;
+  text-align: right;
   
 }
