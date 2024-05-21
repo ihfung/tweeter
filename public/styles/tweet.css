@@ -11,14 +11,19 @@
   box-shadow: 10px 5px 5px rgb(128, 142, 226);
 }
 
-.icon{
+.icons{
+  
   display: flex;
   justify-content: flex-end;
-  
+  flex-direction: row;
   margin-right: 35px;
-
+  padding: 5px;
 }
 
+.icons i:hover {
+  color: #1DA1F2;
+  
+}
 
 .tweetContent {
   display: flex;
@@ -30,3 +35,4 @@
   border-bottom: 5px solid #000;
   
 }
+
