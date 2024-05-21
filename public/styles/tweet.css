@@ -14,8 +14,7 @@
 .icons{
   
   display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
+  justify-content: space-between;
   margin-right: 35px;
   padding: 5px;
 }
@@ -36,3 +35,8 @@
   
 }
 
+.datePost {
+  
+  margin-left: 5px;
+
+}
