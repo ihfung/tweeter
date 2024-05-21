@@ -9,6 +9,7 @@
 
 .tweetContainer:hover {
   box-shadow: 10px 5px 5px rgb(128, 142, 226);
+  transition: box-shadow 0.3s ease;
 }
 
 .icons{
@@ -27,7 +28,7 @@
 .tweetContent {
   display: flex;
   justify-content: flex-start; 
-  margin-top: 50px;
+  margin-top: 35px;
   margin-left: 5px;
   margin-right: 5px;
   padding: 5px; 
@@ -36,7 +37,6 @@
 }
 
 .datePost {
-  
   margin-left: 5px;
-
+  font-family: "Source Sans Pro", sans-serif;
 }
