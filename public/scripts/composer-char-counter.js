@@ -1,25 +1,16 @@
-
-let result = 0;
-
-$('.textArea').keyup(function() {
-  // --- our code goes here ---
+$('.textArea').keyup(function() { // keyup event listener for keystrokes user makes
   const maxCharacters = 140;
-  let characters = 0;
-  characters = $(this).val().length;
-  result = maxCharacters - characters;
+  let characters = $(this).val().length; // get the length of the text in the textarea
+  let result = maxCharacters - characters;
   
-  if (result < maxCharacters) {
-    $(this).children('.counter').text(result);
-  }
+  // the counter result will go to the span called class counter but it will first go to the sibling which is div class sectionPostTweet
+  let counter = $(this).siblings('.sectionPostTweet').children('.counter');
+  counter.text(result);
+
+  // if the result is less than 0, the counter will turn red, otherwise it will stay black
   if (result < 0) {
-    $(this).children('.counter').css('color', 'red');
+    counter.css('color', 'red');
+  } else {
+    counter.css('color', 'black');
   }
-  if (result >= 0) {
-    $(this).children('.counter').css('color', 'black');
-  }
-
-
-  $(this).children('.counter').append(result);
-
 });
-
