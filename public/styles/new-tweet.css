@@ -1,0 +1,31 @@
+.formStyle {
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.textArea {
+  background-color: #f4f1ec;  
+  border: 0;
+  border-bottom: 5px solid #000;
+  width: 1000px;
+  height: 68px;
+  
+}
+
+.buttonStyle {
+  background-color: #4056A1;
+  font-family: "Bungee", sans-serif;  
+  color: #FFFFFF;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.counter {
+  color:#000;
+  font-family: "Bungee", sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  
+}
