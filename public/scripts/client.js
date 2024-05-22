@@ -6,34 +6,6 @@
 
 //const $tweet = $(`<article class="tweet">Hello world</article>`);
 
-
-// Fake data taken from initial-tweets.json
-
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
 $(document).ready(function() {
 
   const renderTweets = function(tweets) {
@@ -48,6 +20,8 @@ $(document).ready(function() {
 
   const createTweetElement = function(tweet) {
   /* Your code for creating the tweet element */
+    const agoTime = timeago.format(tweet.created_at);
+    
     const $tweet = $(`<article class="tweet">
                   <header>
                   <span>
@@ -59,7 +33,7 @@ $(document).ready(function() {
                   <section class="tweetContent">${tweet.content.text}</section>
                   <footer>
                     <div class="icons">
-                      <span class="datePost"> ${new Date(tweet.created_at).toLocaleString()} </span>
+                      <span class="datePost"> ${agoTime} </span>
                         <div class="iconStyle">
                           <i name="flag" class="fas fa-flag"></i>
                           <i name="retweet" class="fas fa-retweet"></i>
@@ -72,9 +46,21 @@ $(document).ready(function() {
     return $tweet;
 
   };
+  //The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
+  //In order to test/drive the function, you can simply call it right after its definition. We do want to load the tweets on page load anyway, so this is fair.
 
-  renderTweets(data);
-
+  const loadTweets = function() {
+    $.ajax({
+      url: "/tweets",
+      method: "GET",
+      dataType: "json",
+    }).then((response) => {
+      renderTweets(response);
+    }).catch((error) => {
+      console.log(error);
+    });
+  };
+  
   //add an event listener that listens for the submit event
   //prevent the default behaviour of the submit event (data submission and page refresh)
   //create an AJAX POST request in client.js that sends the form data to the server.
@@ -83,8 +69,11 @@ $(document).ready(function() {
     const serializedData = $("form").serialize();
     $.post("/tweets", serializedData, (response) => {
       console.log(response);
+      console.log(serializedData);
+      console.log("Tweet has been posted");
     });
     
   });
 
+  loadTweets();
 });
