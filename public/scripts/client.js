@@ -75,5 +75,15 @@ $(document).ready(function() {
 
   renderTweets(data);
 
+  //Add an Event Listener and Prevent the Default Behaviour
+  $("form").on("submit", (event) => {
+    event.preventDefault();
+    const serializedData = $("form").serialize();
+    //Use the jQuery library to submit a POST request that sends the serialized data to the server
+    $.post("/tweets", serializedData)
+      .done(function() {
+        console.log("success");
+      });
+  });
 
 });
