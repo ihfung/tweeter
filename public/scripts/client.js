@@ -62,26 +62,25 @@ $(document).ready(function() {
   };
 
   const validateTweet = function(contentOfTweet) {
-    let stop = false;
-    if (tweet.length === 0) {
+    if (contentOfTweet.length === 0) {
       alert("Error! Tweet is empty");
-      return stop;
+      return false;
     }
-    if (tweet.length > 140) {
+    if (contentOfTweet.length > 140) {
       alert("Error! Tweet is too long");
-      return stop;
+      return false;
     }
-    stop = true;
-    return stop;
+    return true;
   };
-  
+
   //add an event listener that listens for the submit event
   //prevent the default behaviour of the submit event (data submission and page refresh)
   //create an AJAX POST request in client.js that sends the form data to the server.
   $("form").on("submit", (event) => {
     event.preventDefault();
     const serializedData = $("form").serialize();
-    const contentTweet = serializedData.slice(5);
+    const contentTweet = $("textarea").val();
+    contentTweet.trim();
     if (!validateTweet(contentTweet)) {
       return;
     }
