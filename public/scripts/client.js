@@ -60,6 +60,20 @@ $(document).ready(function() {
       console.log(error);
     });
   };
+
+  const validateTweet = function(contentOfTweet) {
+    let stop = false;
+    if (tweet.length === 0) {
+      alert("Error! Tweet is empty");
+      return stop;
+    }
+    if (tweet.length > 140) {
+      alert("Error! Tweet is too long");
+      return stop;
+    }
+    stop = true;
+    return stop;
+  };
   
   //add an event listener that listens for the submit event
   //prevent the default behaviour of the submit event (data submission and page refresh)
@@ -67,13 +81,18 @@ $(document).ready(function() {
   $("form").on("submit", (event) => {
     event.preventDefault();
     const serializedData = $("form").serialize();
+    const contentTweet = serializedData.slice(5);
+    if (!validateTweet(contentTweet)) {
+      return;
+    }
     $.post("/tweets", serializedData, (response) => {
-      console.log(response);
-      console.log(serializedData);
-      console.log("Tweet has been posted");
+      $(".tweetContainer").empty();
+      loadTweets();
+    }).catch((error) => {
+      console.log(error);
     });
     
   });
-
+ 
   loadTweets();
 });
