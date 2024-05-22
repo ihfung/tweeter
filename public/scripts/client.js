@@ -46,6 +46,8 @@ $(document).ready(function() {
     return $tweet;
 
   };
+
+  
   //The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
   //In order to test/drive the function, you can simply call it right after its definition. We do want to load the tweets on page load anyway, so this is fair.
 
