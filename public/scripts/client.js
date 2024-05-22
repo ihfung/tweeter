@@ -8,6 +8,7 @@
 
 
 // Fake data taken from initial-tweets.json
+
 const data = [
   {
     "user": {
@@ -33,18 +34,21 @@ const data = [
   }
 ];
 
-const renderTweets = function(tweets) {
+$(document).ready(function() {
+
+  const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
-  for (let tweet of tweets) {
-    $(".tweetContainer").prepend(createTweetElement(tweet));
-  }
-};
 
-const createTweetElement = function(tweet) {
+    for (let tweet of tweets) {
+      $(".tweetContainer").prepend(createTweetElement(tweet));
+    }
+  };
+
+  const createTweetElement = function(tweet) {
   /* Your code for creating the tweet element */
-  let $tweet = $(`<article class="tweet">
+    const $tweet = $(`<article class="tweet">
                   <header>
                   <span>
                     <img class="avatar" src="${tweet.user.avatars}"/> 
@@ -64,9 +68,12 @@ const createTweetElement = function(tweet) {
                     </div>
                   </footer>
               </article> `);
-  // ...
-  return $tweet;
+    // ...
+    return $tweet;
 
-};
+  };
 
-renderTweets(data);
+  renderTweets(data);
+
+
+});
