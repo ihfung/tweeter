@@ -75,15 +75,16 @@ $(document).ready(function() {
 
   renderTweets(data);
 
-  //Add an Event Listener and Prevent the Default Behaviour
+  //add an event listener that listens for the submit event
+  //prevent the default behaviour of the submit event (data submission and page refresh)
+  //create an AJAX POST request in client.js that sends the form data to the server.
   $("form").on("submit", (event) => {
     event.preventDefault();
     const serializedData = $("form").serialize();
-    //Use the jQuery library to submit a POST request that sends the serialized data to the server
-    $.post("/tweets", serializedData)
-      .done(function() {
-        console.log("success");
-      });
+    $.post("/tweets", serializedData, (response) => {
+      console.log(response);
+    });
+    
   });
 
 });
