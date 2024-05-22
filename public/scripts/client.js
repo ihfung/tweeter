@@ -64,11 +64,11 @@ $(document).ready(function() {
   const validateTweet = function(contentOfTweet) {
     if (contentOfTweet.length === 0) {
       alert("Error! Tweet is empty");
-
-    }
+      return false;
+    } 
     if (contentOfTweet.length > 140) {
       alert("Error! Tweet is too long");
-      
+      return false;
     }
     return true;
   };
