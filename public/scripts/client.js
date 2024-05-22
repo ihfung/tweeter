@@ -64,7 +64,7 @@ $(document).ready(function() {
   const validateTweet = function(contentOfTweet) {
     if (contentOfTweet.length === 0) {
       alert("Error! Tweet is empty");
-      
+
     }
     if (contentOfTweet.length > 140) {
       alert("Error! Tweet is too long");
@@ -89,7 +89,6 @@ $(document).ready(function() {
       loadTweets();
     }).catch((error) => {
       console.log(error);
-      loadTweets();
     });
     
   });
