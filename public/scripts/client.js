@@ -38,8 +38,8 @@ const renderTweets = function(tweets) {
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
   for (let tweet of tweets) {
-    $('#tweets-container').prepend(createTweetElement(tweet));
-  } 
+    $('.tweetContainer').prepend(createTweetElement(tweet));
+  }
 };
 
 const createTweetElement = function(tweet) {
@@ -47,11 +47,11 @@ const createTweetElement = function(tweet) {
   let $tweet = $(`<article class="tweet">
                   <header>
                   <span>
-                    <img class="avatar" src="${tweet.content.avatars}"  /> My Header
+                    <img class="avatar" src="${tweet.user.avatars}"  /> My Header
                   </span>
-                  <h3>${tweet.content.name}</h3>
+                  <h3>${tweet.user.name}</h3>
                   </header>
-                  <span>${tweet.content.handle}</span>
+                  <span>${tweet.user.handle}</span>
                   <section class="tweetContent">${tweet.content.text}</section>
                   <footer>
                     <div class="icons">
