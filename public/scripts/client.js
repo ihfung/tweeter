@@ -79,8 +79,8 @@ $(document).ready(function() {
   $("form").on("submit", (event) => {
     event.preventDefault();
     const serializedData = $("form").serialize();
-    const contentTweet = $("textarea").val();
-    contentTweet.trim();
+    let contentTweet = $("textarea").val();
+    contentTweet = contentTweet.trim();
     if (!validateTweet(contentTweet)) {
       return;
     }
