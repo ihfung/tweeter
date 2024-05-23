@@ -32,12 +32,15 @@ $(document).ready(function() {
     
     const $tweet = $(`<article class="tweet">
                   <header>
+                  <div class="tweetName">
                   <span>
                     <img class="avatar" src="${escape(tweet.user.avatars)}"/> 
                   </span>
-                  <h3>${escape(tweet.user.name)}</h3>
+                  <h3 class="firstName">${escape(tweet.user.name)}</h3>
+                  <span class="handle">${escape(tweet.user.handle)}</span>
+                  </div>
                   </header>
-                  <span>${escape(tweet.user.handle)}</span>
+                  
                   <section class="tweetContent">${escape(tweet.content.text)}</section>
                   <footer>
                     <div class="icons">
@@ -54,9 +57,7 @@ $(document).ready(function() {
     return $tweet;
 
   };
-  //The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
-  //In order to test/drive the function, you can simply call it right after its definition. We do want to load the tweets on page load anyway, so this is fair.
-
+  
   const loadTweets = function() {
     $.ajax({
       url: "/tweets",
@@ -72,9 +73,9 @@ $(document).ready(function() {
   const validateTweet = function(contentOfTweet) {
     $('.error').empty();
     $('.error').slideUp();
-    
+
     if (contentOfTweet.length === 0 || contentOfTweet === null) {
-      //alert("Error! Tweet is empty");
+      
       $('.error').append('<p><i class="fa-solid fa-triangle-exclamation"></i> Error! Please enter some characters <i class="fa-solid fa-triangle-exclamation"></i></p>').slideDown();
       setTimeout(() => {
         $('.error').slideUp();
@@ -84,7 +85,7 @@ $(document).ready(function() {
     }
 
     if (contentOfTweet.length > 140) {
-      //alert("Error! Tweet is too long");
+      
       $('.error').append('<p><i class="fa-solid fa-triangle-exclamation"></i> Error! Too Long. Please be below 140 characters <i class="fa-solid fa-triangle-exclamation"></i></p>').slideDown();
       setTimeout(() => {
         $('.error').slideUp();
@@ -95,10 +96,7 @@ $(document).ready(function() {
     return true;
   };
 
-  //add an event listener that listens for the submit event
-  //prevent the default behaviour of the submit event (data submission and page refresh)
-  //create an AJAX POST request in client.js that sends the form data to the server.
-  // if the tweet is invalid, return false to stop tweet from being posted
+  
   $("form").on("submit", (event) => {
     event.preventDefault();
     const serializedData = $("form").serialize();

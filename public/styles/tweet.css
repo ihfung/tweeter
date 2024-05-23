@@ -1,4 +1,4 @@
-.tweetContainer {
+.tweet {
   position: relative;
   height: auto;
   border: 2px solid black;
@@ -7,7 +7,7 @@
   
 }
 
-.tweetContainer:hover {
+.tweet:hover {
   box-shadow: 10px 5px 5px rgb(128, 142, 226);
   transition: box-shadow 0.3s ease;
 }
@@ -30,7 +30,7 @@
   margin-top: 35px;
   margin-left: 5px;
   margin-right: 5px;
-  padding: 5px; 
+  padding: 35px; 
   border-bottom: 5px solid #000;
   
 }
@@ -38,4 +38,28 @@
 .datePost {
   margin-left: 5px;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+.avatar {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.tweetName {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.firstName {
+  margin-left: 20px;
+  margin-top: 40px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 50;
+}
+
+.handle {
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 42px;
 }

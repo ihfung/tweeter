@@ -34,3 +34,50 @@ body {
   background-color: inherit;
 
  }
+
+ @media only screen and (min-width: 1024px) {
+
+  nav {
+    width: 100%;
+    
+  }
+
+  .headerStyle {
+ 
+    width: 30%;
+    float: left;
+    margin: 3em;
+    margin-right: 1em;
+    margin-top: 250px;
+    
+  }
+
+  .tweet {
+    width: 55%;
+    float: right;
+    margin-top: 3em;
+  }
+
+  .new-tweet {
+    width: 55%;
+    float: right;
+    margin-left: auto;
+    margin-top: -482px;
+  }
+
+  .container {
+    margin: 0 auto;
+  }
+  
+ }
+
+ @media only screen and (max-width: 1023px) {
+  nav {
+   background-color: #008c8c;
+   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+
+  }
+  .headerStyle {
+    background-color: #008c8c;
+  }
+ }
