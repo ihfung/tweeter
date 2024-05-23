@@ -1,7 +1,8 @@
 nav {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  background-color: #008c8c;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   font-family: "Bungee", sans-serif;  
   color: #FFFFFF;
   padding: 0 1.5em;
@@ -21,10 +22,12 @@ nav {
  .postButton {
   height: auto;
   font-family: "Source Sans Pro", sans-serif;
+  color: #FFFFFF;
   border: none;
   margin-top: 45px;
   margin-bottom: auto;
-  background-color: #4056A1;
+  background-color: #008c8c;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   
  }
 
