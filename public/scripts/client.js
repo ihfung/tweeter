@@ -97,9 +97,9 @@ $(document).ready(function() {
   };
 
   
-  $("form").on("submit", (event) => {
+  $("#tweetForm").on("submit", (event) => {
     event.preventDefault();
-    const serializedData = $("form").serialize();
+    const serializedData = $("#tweetForm").serialize();
     let contentTweet = $("textarea").val();
     contentTweet = contentTweet.trim();
 
@@ -107,14 +107,18 @@ $(document).ready(function() {
       return false;
     }
 
-    $.post("/tweets", serializedData, (response) => {
-      $(".tweetContainer").empty();
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: serializedData,
+    }).then((response) => {
       loadTweets();
+      $("textarea").val("");
+      $(".counter").text("140");
     }).catch((error) => {
       console.log(error);
     });
-    
-  });
  
+  });
   loadTweets();
 });
