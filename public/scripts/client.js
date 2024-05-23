@@ -72,6 +72,7 @@ $(document).ready(function() {
   const validateTweet = function(contentOfTweet) {
     $('.error').empty();
     $('.error').slideUp();
+    
     if (contentOfTweet.length === 0 || contentOfTweet === null) {
       //alert("Error! Tweet is empty");
       $('.error').append('<p><i class="fa-solid fa-triangle-exclamation"></i> Error! Please enter some characters <i class="fa-solid fa-triangle-exclamation"></i></p>').slideDown();
@@ -81,6 +82,7 @@ $(document).ready(function() {
       , 5000);
       return false;
     }
+
     if (contentOfTweet.length > 140) {
       //alert("Error! Tweet is too long");
       $('.error').append('<p><i class="fa-solid fa-triangle-exclamation"></i> Error! Too Long. Please be below 140 characters <i class="fa-solid fa-triangle-exclamation"></i></p>').slideDown();
@@ -96,14 +98,17 @@ $(document).ready(function() {
   //add an event listener that listens for the submit event
   //prevent the default behaviour of the submit event (data submission and page refresh)
   //create an AJAX POST request in client.js that sends the form data to the server.
+  // if the tweet is invalid, return false to stop tweet from being posted
   $("form").on("submit", (event) => {
     event.preventDefault();
     const serializedData = $("form").serialize();
     let contentTweet = $("textarea").val();
     contentTweet = contentTweet.trim();
+
     if (!validateTweet(contentTweet)) {
-      return;
+      return false;
     }
+
     $.post("/tweets", serializedData, (response) => {
       $(".tweetContainer").empty();
       loadTweets();
