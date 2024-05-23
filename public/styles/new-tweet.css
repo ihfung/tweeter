@@ -43,5 +43,8 @@
   display: none;
   margin-top: 10px;
   padding-left: 25px;
+}
+
+.error p {
   padding: 10px;
 }
