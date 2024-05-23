@@ -28,10 +28,19 @@
   font-family: "Bungee", sans-serif;  
   color: #FFFFFF;
   padding: 10px;
+  cursor: pointer;
   
 }
 
 .counter {
   color:#000;
   font-family: "Bungee", sans-serif;
+}
+
+.error {
+  color: red;
+  border: 3px solid red;
+  display: none;
+  margin-top: 10px;
+  padding-left: 25px;
 }

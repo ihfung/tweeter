@@ -6,7 +6,15 @@
 
 //const $tweet = $(`<article class="tweet">Hello world</article>`);
 
+
+
 $(document).ready(function() {
+
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   const renderTweets = function(tweets) {
   // loops through tweets
@@ -25,12 +33,12 @@ $(document).ready(function() {
     const $tweet = $(`<article class="tweet">
                   <header>
                   <span>
-                    <img class="avatar" src="${tweet.user.avatars}"/> 
+                    <img class="avatar" src="${escape(tweet.user.avatars)}"/> 
                   </span>
-                  <h3>${tweet.user.name}</h3>
+                  <h3>${escape(tweet.user.name)}</h3>
                   </header>
-                  <span>${tweet.user.handle}</span>
-                  <section class="tweetContent">${tweet.content.text}</section>
+                  <span>${escape(tweet.user.handle)}</span>
+                  <section class="tweetContent">${escape(tweet.content.text)}</section>
                   <footer>
                     <div class="icons">
                       <span class="datePost"> ${agoTime} </span>
@@ -46,8 +54,6 @@ $(document).ready(function() {
     return $tweet;
 
   };
-
-  
   //The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
   //In order to test/drive the function, you can simply call it right after its definition. We do want to load the tweets on page load anyway, so this is fair.
 
@@ -64,14 +70,26 @@ $(document).ready(function() {
   };
 
   const validateTweet = function(contentOfTweet) {
-    if (contentOfTweet.length === 0) {
-      alert("Error! Tweet is empty");
-      return false;
-    } 
-    if (contentOfTweet.length > 140) {
-      alert("Error! Tweet is too long");
+    $('.error').empty();
+    $('.error').slideUp();
+    if (contentOfTweet.length === 0 || contentOfTweet === null) {
+      //alert("Error! Tweet is empty");
+      $('.error').append('<p><i class="fa-solid fa-triangle-exclamation"></i> Error! Please enter some characters <i class="fa-solid fa-triangle-exclamation"></i></p>').slideDown();
+      setTimeout(() => {
+        $('.error').slideUp();
+      }
+      , 5000);
       return false;
     }
+    if (contentOfTweet.length > 140) {
+      //alert("Error! Tweet is too long");
+      $('.error').append('<p><i class="fa-solid fa-triangle-exclamation"></i> Error! Too Long. Please be below 140 characters <i class="fa-solid fa-triangle-exclamation"></i></p>').slideDown();
+      setTimeout(() => {
+        $('.error').slideUp();
+      } , 5000);
+      return false;
+    }
+  
     return true;
   };
 
