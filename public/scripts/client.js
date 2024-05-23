@@ -61,7 +61,6 @@ $(document).ready(function() {
   $(".postButton").on("click", function() {
     $(".new-tweet").focus();
     $("textarea").focus();
-    $(".arrowDown").slideDown();
   });
 
   const loadTweets = function() {
