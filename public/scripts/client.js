@@ -20,6 +20,10 @@ $(document).ready(function() {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
+  //empty the tweet container before appending the new tweets
+
+    $(".tweetContainer").empty();
+    
 
     for (let tweet of tweets) {
       $(".tweetContainer").prepend(createTweetElement(tweet));
@@ -124,9 +128,7 @@ $(document).ready(function() {
       data: serializedData,
     }).then((response) => {
       loadTweets();
-      $(".tweet").empty();
-      $(".textArea").empty();
-      $("textArea").val("");
+      $("textArea").empty();
       $(".counter").text("140");
     }).catch((error) => {
       console.log(error);
