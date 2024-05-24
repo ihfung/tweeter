@@ -1,4 +1,4 @@
-$('.textArea').keyup(function() { // keyup event listener for keystrokes user makes
+$('.textArea').on('input', function() { // input event listener for changes in textarea
   const maxCharacters = 140;
   let characters = $(this).val().length; // get the length of the text in the textarea
   let result = maxCharacters - characters;
