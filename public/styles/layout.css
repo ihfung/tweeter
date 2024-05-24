@@ -55,7 +55,7 @@ body {
   .tweet {
     width: 55%;
     float: right;
-    margin-top: 3em;
+    margin-top: 2.5em;
   }
 
   .new-tweet {
@@ -90,5 +90,9 @@ body {
   .textArea {
     height: 60px;
     margin-top: 65px;
+  }
+
+  .tweet {
+    margin-top: 1.5em;
   }
  }

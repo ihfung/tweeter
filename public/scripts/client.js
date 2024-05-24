@@ -58,11 +58,13 @@ $(document).ready(function() {
 
   };
   
+  //button to bring the user to the compose tweet text area
   $(".postButton").on("click", function() {
     $(".new-tweet").focus();
     $("textarea").focus();
   });
 
+  //function to load tweets from the database
   const loadTweets = function() {
     $.ajax({
       url: "/tweets",
@@ -75,6 +77,8 @@ $(document).ready(function() {
     });
   };
 
+  //function to validate the tweet
+  //if the tweet is empty or more than 140 characters, it will show an error message
   const validateTweet = function(contentOfTweet) {
     $('.error').empty();
     $('.error').slideUp();
@@ -101,7 +105,9 @@ $(document).ready(function() {
     return true;
   };
 
-  
+  //function to submit the tweet to the database from the form
+  //validate the tweet before submitting
+  //if the tweet is valid, it will be submitted to the database
   $("#tweetForm").on("submit", (event) => {
     event.preventDefault();
     const serializedData = $("#tweetForm").serialize();
