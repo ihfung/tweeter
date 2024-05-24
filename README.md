@@ -15,9 +15,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
-![""]()
-![" "]()
-![""]()
+!["Tweet Page"](https://github.com/ihfung/tweeter/blob/master/docs/tweet.png?raw=true)
+!["Another Tweet"](https://github.com/ihfung/tweeter/blob/master/docs/tweet2.png?raw=true)
+!["Response Design Page"](https://github.com/ihfung/tweeter/blob/master/docs/tweetResponsive.png?raw=true)
 
 ## Dependencies
 
