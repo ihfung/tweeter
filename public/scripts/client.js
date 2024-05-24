@@ -61,7 +61,7 @@ $(document).ready(function() {
   //button to bring the user to the compose tweet text area
   $(".postButton").on("click", function() {
     $(".new-tweet").focus();
-    $("textarea").focus();
+    $("textArea").focus();
   });
 
   //function to load tweets from the database
