@@ -124,8 +124,8 @@ $(document).ready(function() {
       data: serializedData,
     }).then((response) => {
       loadTweets();
-      $("textArea").val("");
       $(".textArea").empty();
+      $("textArea").val("");
       $(".counter").text("140");
     }).catch((error) => {
       console.log(error);
